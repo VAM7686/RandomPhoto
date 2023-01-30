@@ -16,7 +16,7 @@ This is an iOS app that generates random cat images.
 ## Installation
 1. Clone this repository
 ```
-git clone https://github.com/[your_username]/CatImageGenerator.git
+git clone https://github.com/VAM7686/RandomPhoto.git
 ```
 2. Open the project in Xcode
 3. Build and run the app in the simulator or on a device
