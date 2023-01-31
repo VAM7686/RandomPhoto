@@ -19,5 +19,6 @@ This is an iOS app that generates random cat images.
 git clone https://github.com/VAM7686/RandomPhoto.git
 ```
 2. Open the project in Xcode
-3. Build and run the app in the simulator or on a device
-4. (Optional) If you would like to configure the Firebase for your own database, follow these [steps](https://firebase.google.com/docs/ios/setup).
+3. Add your GoogleService-Info.plist to the [RandomPhoto directory](https://github.com/VAM7686/RandomPhoto/tree/main/RandomPhoto).
+4. Build and run the app in the simulator or on a device
+5. (Optional) If you would like to configure the Firebase for your own database, follow these [steps](https://firebase.google.com/docs/ios/setup).
