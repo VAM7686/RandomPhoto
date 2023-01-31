@@ -6,7 +6,7 @@ This is an iOS app that generates random cat images.
 
 - Generates random cat images from [The Cat API](https://thecatapi.com/)
 - Changes background color with a tap of a button
-- Allows users to like a photo and stores the urls of the liked photos in Firebase
+- Allows users to like or dislike a photo and stores the urls of the photos in Firebase Realtime Database
 
 ## Requirements
 - Xcode 12 or later
