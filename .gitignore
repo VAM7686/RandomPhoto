@@ -4,6 +4,7 @@ Pods/
 Podfile.lock
 xcuserdata/
 *.xcworkspace/
+**/GoogleService-Info.plist
 
 # Android
 **/google-services.json
