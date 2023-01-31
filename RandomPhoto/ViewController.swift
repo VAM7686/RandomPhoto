@@ -27,6 +27,14 @@ class ViewController: UIViewController {
         return button
     }()
     
+    private let dislikeButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.black
+        button.setTitle("Dislike", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    
     private var currentImageURL: String = ""
         
     private var ref: DatabaseReference!
@@ -42,6 +50,9 @@ class ViewController: UIViewController {
         
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         view.addSubview(likeButton)
+        
+        dislikeButton.addTarget(self, action: #selector(dislikeButtonTapped), for: .touchUpInside)
+        view.addSubview(dislikeButton)
         
         catImageView.contentMode = .scaleAspectFit
         catImageView.center = view.center
@@ -61,11 +72,19 @@ class ViewController: UIViewController {
         )
         
         likeButton.frame = CGRect(
-            x: 30,
+            x: view.frame.size.width/2 + 30,
             y: view.frame.size.height-80-view.safeAreaInsets.bottom,
-            width: view.frame.size.width-60,
+            width: view.frame.size.width/2-60,
             height: 60
         )
+        
+        dislikeButton.frame = CGRect(
+            x: 30,
+            y: view.frame.size.height-80-view.safeAreaInsets.bottom,
+            width: view.frame.size.width/2-60,
+            height: 60
+        )
+
     }
     
     @objc func buttonTapped(_ sender: Any) {
@@ -89,6 +108,23 @@ class ViewController: UIViewController {
             print("Success: Liked photo URL stored in Firebase with key: \(k!)")
         }
         view.backgroundColor = UIColor.systemPink
+    }
+    
+    @objc func dislikeButtonTapped(_ sender: Any) {
+        // child reference to store liked photos
+        
+        let dislikedPhotosReference = ref.child("dislikedPhotos")
+        let k = dislikedPhotosReference.childByAutoId().key
+        
+        dislikedPhotosReference.child(k!).setValue(currentImageURL) { (error, reference) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            print("Success: Disliked photo URL stored in Firebase with key: \(k!)")
+        }
+        view.backgroundColor = UIColor.systemGray
     }
     
     func getRandomPhoto() {
