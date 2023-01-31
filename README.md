@@ -2,6 +2,8 @@
 
 This is an iOS app that generates random cat images.
 
+![](catPictureApp.gif)
+
 ## Features
 
 - Generates random cat images from [The Cat API](https://thecatapi.com/)
